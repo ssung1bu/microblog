@@ -2,8 +2,11 @@
 
 <p>There are <%= @users.count %> users.</p>
 
+<ul>
 <% @users.each do |user| %>
-	<p>
+	<li>
 		<%= link_to(user.email, user) %>
-	</p>
+    <%= button_to('Follow', follows_path(id: user), method: :create) %>
+	</li>
 <% end %>
+</ul>

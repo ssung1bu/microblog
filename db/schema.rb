@@ -11,13 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160711232543) do
+ActiveRecord::Schema.define(version: 20160714000802) do
 
   create_table "blogs", force: :cascade do |t|
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "text"
+  end
+
+  create_table "follows", force: :cascade do |t|
+    t.integer  "following_user_id"
+    t.integer  "followed_user_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -31,7 +38,6 @@ ActiveRecord::Schema.define(version: 20160711232543) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.boolean  "following"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
   end
